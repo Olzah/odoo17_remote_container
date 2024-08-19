@@ -1,0 +1,55 @@
+{
+    // Name of the development container
+    "name": "Odoo Project",
+
+    // Specify the docker-compose file for multiple services setup
+    "dockerComposeFile": "docker-compose.yml",
+
+    // Service to be used as the main container
+    "service": "odoo",
+
+    // User to log into within the container
+    "remoteUser": "devuser",
+
+    // Directory in the container where the workspace is located
+    "workspaceFolder": "/opt/odoo_project",
+
+    // Environment variables to be set in the container
+    "remoteEnv": {
+        "PYTHONPATH": "/opt/odoo_project/odoo"
+    },
+
+    // Command to run after the container is created
+    "postCreateCommand": "bash /workspace/.devcontainer/postcreate.sh",
+
+    // Ports that will be allowed outside of devcontainer by default
+    // It can be edited from run devcontainer
+	// "forwardPorts": [8069,2345],
+
+
+    // VS Code settings applied to the development container
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "/bin/bash"
+            }
+        },
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.languageServer": "Pylance",
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active"
+    },
+
+    // Extensions to be installed in VS Code within the container
+    "extensions": [
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "hbenl.vscode-test-explorer",
+        "littlefoxteam.vscode-python-test-adapter",
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint"
+    ]
+}
+
